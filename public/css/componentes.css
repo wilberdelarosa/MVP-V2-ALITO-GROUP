@@ -1,0 +1,584 @@
+/* componentes.css - Estilos para componentes reutilizables */
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-gris-oscuro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cargador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cargador svg {
+  width: 80px;
+  height: 80px;
+  transform-origin: center;
+  animation: rotate 2s linear infinite;
+}
+
+#circulo-cargador {
+  fill: none;
+  stroke: var(--color-amarillo);
+  stroke-width: 4;
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: dash 2s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 50;
+  }
+  100% {
+    stroke-dashoffset: 200;
+  }
+}
+
+.texto-cargador {
+  margin-top: 20px;
+  color: var(--color-blanco);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Cursor personalizado */
+.cursor-punto,
+.cursor-punto-contorno {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.cursor-punto {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-amarillo);
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+.cursor-punto-contorno {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(242, 196, 70, 0.2);
+  border: 1px solid var(--color-amarillo);
+  transition: transform 0.15s ease;
+  will-change: transform;
+}
+
+body:hover .cursor-punto,
+body:hover .cursor-punto-contorno {
+  opacity: 1;
+}
+/* ============================
+   MENÚ LATERAL FLOTANTE 
+============================ */
+.menu-lateral {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 990;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.menu-lateral.visible {
+  opacity: 1;
+  visibility: visible;
+}
+.menu-lateral-enlaces {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.menu-lateral-enlace {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-gris-oscuro);
+  background-color: var(--color-blanco);
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: var(--sombra-md);
+  transition: var(--transicion-rebote);
+  position: relative;
+  overflow: hidden;
+}
+.menu-lateral-enlace i {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-amarillo-claro);
+  border-radius: 50%;
+  color: var(--color-amarillo-oscuro);
+  transition: var(--transicion-estandar);
+}
+.menu-lateral-enlace span {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.3s ease, margin-left 0.3s ease;
+  opacity: 0;
+}
+.menu-lateral-enlace:hover span,
+.menu-lateral-enlace.active span {
+  max-width: 150px;
+  margin-left: 10px;
+  opacity: 1;
+}
+.menu-lateral-enlace:hover,
+.menu-lateral-enlace.active {
+  padding-right: 20px;
+  transform: translateX(-5px);
+}
+.menu-lateral-enlace:hover i {
+  background-color: var(--color-amarillo);
+}
+/* Icono en negro cuando enlace está activo */
+.menu-lateral-enlace.active i {
+  background-color: var(--color-amarillo);
+  color: #000;
+}
+.menu-lateral-enlace.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--color-amarillo-oscuro);
+}
+
+/* ============================
+   BOTÓN FLOTANTE PARA MÓVIL
+============================ */
+.side-menu-toggle {
+  display: none; /* En escritorio, se oculta */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+.side-menu-toggle i {
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  /* Mostrar el botón flotante de menú lateral */
+  .side-menu-toggle {
+    display: flex;
+  }
+
+  /* En móviles, el menú lateral se oculta por defecto */
+  .menu-lateral {
+    right: -80%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(100%);
+  }
+  .menu-lateral.visible {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Botones */
+.boton-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+  padding: 16px 36px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: var(--transicion-rebote);
+  box-shadow: 0 4px 15px rgba(242, 196, 70, 0.4);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards 0.9s;
+}
+
+.boton-cta span {
+  margin-right: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.boton-cta i {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.boton-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transicion-estandar);
+}
+
+.boton-cta:hover {
+  background-color: var(--color-amarillo-oscuro);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(242, 196, 70, 0.5);
+}
+
+.boton-cta:hover i {
+  transform: translateX(5px);
+}
+
+.boton-cta:hover::before {
+  left: 100%;
+  transition: 0.7s;
+}
+
+.boton-cta:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(242, 196, 70, 0.3);
+}
+
+/* Encabezados de sección */
+.encabezado-seccion {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.etiqueta-seccion {
+  display: inline-block;
+  background-color: var(--color-amarillo-claro);
+  color: var(--color-gris-oscuro);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.etiqueta-seccion::before,
+.etiqueta-seccion::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 30px;
+  background-color: var(--color-amarillo);
+  top: 50%;
+}
+
+.etiqueta-seccion::before {
+  left: -40px;
+}
+
+.etiqueta-seccion::after {
+  right: -40px;
+}
+
+.titulo-seccion {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--color-gris-oscuro);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.titulo-seccion::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background-color: var(--color-amarillo);
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Divisores de forma */
+.divisor-forma {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 1;
+}
+
+.divisor-forma svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+.divisor-forma .relleno-forma {
+  fill: var(--color-blanco);
+}
+
+.divisor-forma-inferior {
+  transform: rotate(180deg);
+  top: 0;
+  bottom: auto;
+}
+
+/* Navegación por voz */
+.boton-navegacion-voz {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-gris-oscuro);
+  color: var(--color-blanco);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 990;
+  box-shadow: var(--sombra-md);
+  transition: var(--transicion-estandar);
+}
+
+.boton-navegacion-voz:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+  transform: scale(1.1);
+}
+
+.boton-navegacion-voz i {
+  font-size: 24px;
+}
+
+.boton-navegacion-voz.escuchando {
+  background-color: #f44336; /* Rojo para indicar que está escuchando */
+  animation: pulse 1.5s infinite;
+}
+
+.boton-navegacion-voz.detectando {
+  background-color: #4caf50; /* Verde para indicar que detectó un comando */
+}
+
+.boton-navegacion-voz.ejecutando {
+  background-color: var(--color-amarillo);
+  color: #000; /* Negro para el icono cuando está ejecutando */
+}
+
+/* Estado de voz */
+/* Moví el estado-voz para que esté junto al botón - dejé 90px de margen */
+.estado-voz {
+  position: fixed;
+  bottom: 78px; /* Mantiene la misma altura que el botón */
+  left: 120px; /* Aumenté de 20px a 100px para dar espacio al botón */
+  background-color: rgba(35, 33, 36, 0.95);
+  color: var(--color-blanco);
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 14px;
+  z-index: 990;
+  opacity: 0;
+  transform: translateX(-50px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  max-width: 250px;
+}
+
+.estado-voz:not(:empty) {
+  opacity: 1;
+}
+
+/* Controles de voz */
+.controles-voz {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 5px;
+  border-color: aliceblue;
+  display: flex;
+  gap: 10px;
+  z-index: 990;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.controles-voz.activo {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.boton-pausa,
+.boton-cerrar {
+  background-color: var(--color-gris-oscuro);
+  color: var(--color-blanco);
+  border: 2px;
+  border-color: white;
+  border-radius: 25px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.boton-pausa:hover,
+.boton-cerrar:hover {
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-contenido {
+  background-color: var(--color-blanco);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cerrar {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton-tutorial {
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.boton-tutorial:hover {
+  background-color: var(--color-amarillo-oscuro);
+}
+
+/* Botón volver arriba */
+#volver-arriba {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--color-amarillo);
+  color: var(--color-gris-oscuro);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 989;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transicion-estandar);
+  box-shadow: var(--sombra-md);
+}
+
+#volver-arriba.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#volver-arriba:hover {
+  background-color: var(--color-amarillo-oscuro);
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-lg);
+}
+

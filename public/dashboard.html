@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control - Alito Group SRL</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/secciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="cargador">
+      <svg viewBox="0 0 80 80">
+        <circle id="circulo-cargador" cx="40" cy="40" r="32"></circle>
+      </svg>
+      <div class="texto-cargador">Alito Group</div>
+    </div>
+  </div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor-punto-contorno"></div>
+  <div class="cursor-punto"></div>
+
+  <header>
+    <div class="contenedor">
+      <a href="index.html" class="logo">
+        <img src="img/logo.png" alt="Logo" class="logo-img">
+        <span class="logo-texto">Alito Group SRL</span>
+      </a>
+      <nav>
+        <ul class="nav-enlaces">
+          <li><a href="index.html#inicio" class="nav-enlace">Inicio</a></li>
+          <li><a href="index.html#quienes-somos" class="nav-enlace">Quiénes Somos</a></li>
+          <li><a href="index.html#servicios" class="nav-enlace">Servicios</a></li>
+          <li><a href="index.html#materiales" class="nav-enlace">Materiales</a></li>
+          <li><a href="index.html#contacto" class="nav-enlace">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="usuario-menu">
+        <button id="boton-usuario" class="boton-usuario">
+          <img id="avatar-usuario" src="img/placeholder.jpg" alt="Avatar" class="avatar-usuario">
+          <span id="nombre-usuario">Usuario</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div id="menu-desplegable" class="menu-desplegable">
+          <div class="info-usuario">
+            <p id="nombre-completo">Nombre Completo</p>
+            <p id="email-usuario" class="email-usuario">usuario@ejemplo.com</p>
+          </div>
+          <ul>
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Panel de Control</a></li>
+            <li><a href="perfil.html"><i class="fas fa-user-edit"></i> Editar Perfil</a></li>
+            <li><button id="cerrar-sesion"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button></li>
+          </ul>
+        </div>
+      </div>
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="dashboard-section">
+      <div class="contenedor">
+        <h1 class="dashboard-titulo">Panel de Control</h1>
+        
+        <div class="dashboard-contenido">
+          <!-- Sidebar -->
+          <div class="dashboard-sidebar">
+            <div class="perfil-usuario">
+              <img id="sidebar-avatar" src="img/placeholder.jpg" alt="Avatar" class="sidebar-avatar">
+              <h3 id="sidebar-nombre">Nombre Usuario</h3>
+              <p id="sidebar-rol" class="rol-usuario">Cliente</p>
+            </div>
+            
+            <nav class="menu-dashboard">
+              <ul>
+                <li><button class="tab-link active" data-tab="perfil"><i class="fas fa-user"></i> Mi Perfil</button></li>
+                <li class="solo-cliente"><button class="tab-link" data-tab="solicitudes"><i class="fas fa-file-alt"></i> Mis Solicitudes</button></li>
+                <li class="solo-empleado solo-admin"><button class="tab-link" data-tab="proyectos"><i class="fas fa-project-diagram"></i> Proyectos</button></li>
+                <li class="solo-admin"><button class="tab-link" data-tab="usuarios"><i class="fas fa-users"></i> Gestión de Usuarios</button></li>
+                <li class="solo-admin"><button class="tab-link" data-tab="permisos"><i class="fas fa-user-shield"></i> Permisos</button></li>
+              </ul>
+            </nav>
+          </div>
+          
+          <!-- Contenido principal -->
+          <div class="dashboard-main">
+            <!-- Tab Mi Perfil -->
+            <div id="tab-perfil" class="tab-content active">
+              <h2>Mi Perfil</h2>
+              <div class="perfil-info">
+                <div class="grupo-info">
+                  <label>Nombre</label>
+                  <p id="perfil-nombre">Cargando...</p>
+                </div>
+                <div class="grupo-info">
+                  <label>Correo Electrónico</label>
+                  <p id="perfil-email">Cargando...</p>
+                </div>
+                <div class="grupo-info">
+                  <label>Rol</label>
+                  <p id="perfil-rol">Cargando...</p>
+                </div>
+                <div class="grupo-info">
+                  <label>Fecha de Registro</label>
+                  <p id="perfil-fecha">Cargando...</p>
+                </div>
+                <button id="editar-perfil" class="boton-dashboard">Editar Perfil</button>
+              </div>
+            </div>
+            
+            <!-- Tab Mis Solicitudes (Solo Cliente) -->
+            <div id="tab-solicitudes" class="tab-content">
+              <h2>Mis Solicitudes</h2>
+              <div class="solicitudes-acciones">
+                <button id="nueva-solicitud" class="boton-dashboard"><i class="fas fa-plus"></i> Nueva Solicitud</button>
+              </div>
+              <div class="tabla-contenedor">
+                <table class="tabla-dashboard">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Tipo</th>
+                      <th>Fecha</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-solicitudes">
+                    <tr>
+                      <td colspan="5" class="texto-centrado">Cargando solicitudes...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Tab Proyectos (Solo Empleado y Admin) -->
+            <div id="tab-proyectos" class="tab-content">
+              <h2>Proyectos</h2>
+              <div class="proyectos-acciones">
+                <button id="nuevo-proyecto" class="boton-dashboard solo-admin"><i class="fas fa-plus"></i> Nuevo Proyecto</button>
+              </div>
+              <div class="tabla-contenedor">
+                <table class="tabla-dashboard">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Cliente</th>
+                      <th>Fecha Inicio</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-proyectos">
+                    <tr>
+                      <td colspan="6" class="texto-centrado">Cargando proyectos...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Tab Gestión de Usuarios (Solo Admin) -->
+            <div id="tab-usuarios" class="tab-content">
+              <h2>Gestión de Usuarios</h2>
+              <div class="usuarios-acciones">
+                <button id="nuevo-usuario" class="boton-dashboard"><i class="fas fa-user-plus"></i> Nuevo Usuario</button>
+              </div>
+              <div class="tabla-contenedor">
+                <table class="tabla-dashboard">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Nombre</th>
+                      <th>Email</th>
+                      <th>Rol</th>
+                      <th>Estado</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-usuarios">
+                    <tr>
+                      <td colspan="6" class="texto-centrado">Cargando usuarios...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <!-- Tab Permisos (Solo Admin) -->
+            <div id="tab-permisos" class="tab-content">
+              <h2>Permisos</h2>
+              <div class="permisos-info">
+                <div class="tarjeta-permisos">
+                  <h3><i class="fas fa-user"></i> Cliente</h3>
+                  <ul>
+                    <li>Ver su perfil personal</li>
+                    <li>Crear y gestionar solicitudes</li>
+                    <li>Ver historial de solicitudes</li>
+                    <li>Actualizar información personal</li>
+                  </ul>
+                </div>
+                <div class="tarjeta-permisos">
+                  <h3><i class="fas fa-user-tie"></i> Empleado</h3>
+                  <ul>
+                    <li>Todo lo que puede hacer un Cliente</li>
+                    <li>Ver proyectos asignados</li>
+                    <li>Actualizar estado de proyectos</li>
+                    <li>Responder a solicitudes de clientes</li>
+                  </ul>
+                </div>
+                <div class="tarjeta-permisos">
+                  <h3><i class="fas fa-user-shield"></i> Administrador</h3>
+                  <ul>
+                    <li>Todo lo que puede hacer un Empleado</li>
+                    <li>Gestionar usuarios (crear, editar, eliminar)</li>
+                    <li>Asignar roles a usuarios</li>
+                    <li>Crear y asignar proyectos</li>
+                    <li>Acceso completo al sistema</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="asignar-permisos">
+                <h3>Asignar Rol a Usuario</h3>
+                <form id="form-asignar-rol" class="form-permisos">
+                  <div class="grupo-formulario">
+                    <label for="usuario-rol">Seleccionar Usuario</label>
+                    <select id="usuario-rol" name="usuario-rol" required>
+                      <option value="">Seleccione un usuario</option>
+                    </select>
+                  </div>
+                  <div class="grupo-formulario">
+                    <label for="nuevo-rol">Nuevo Rol</label>
+                    <select id="nuevo-rol" name="nuevo-rol" required>
+                      <option value="">Seleccione un rol</option>
+                      <option value="cliente">Cliente</option>
+                      <option value="empleado">Empleado</option>
+                      <option value="admin">Administrador</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="boton-dashboard">Asignar Rol</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <div class="footer-inferior">
+        <p>&copy; 2025 Alito Group SRL. Todos los derechos reservados.</p>
+      </div>
+    </div>
+    <button id="volver-arriba" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

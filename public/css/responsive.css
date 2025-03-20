@@ -1,0 +1,64 @@
+/* responsive.css - Estilos responsivos */
+
+/* Pantallas grandes */
+@media (max-width: 1200px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .titulo-seccion {
+    font-size: 36px;
+  }
+}
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .contenido-sobre-nosotros {
+    flex-direction: column;
+  }
+
+  .contenido-contacto {
+    flex-direction: column;
+  }
+
+  .fila-formulario {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu-lateral {
+    right: 10px;
+  }
+
+  .servicios-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Tablets pequeñas y móviles grandes */
+@media (max-width: 768px) {
+  .nav-enlaces {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-enlaces.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gris-oscuro);
+    padding: 60px 20px;
+    z-index: 1000;
+  }
+}

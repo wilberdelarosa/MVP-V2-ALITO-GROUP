@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alito Group SRL - Alquiler de Equipos Pesados y Movimiento de Materiales</title>
+  <!-- CSS Modularizado en 4 partes -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/secciones.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+
+  <script src="js/script.js" defer></script>
+  <script src="js/navegacion-voz.js" defer></script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="cargador">
+      <svg viewBox="0 0 80 80">
+        <circle id="circulo-cargador" cx="40" cy="40" r="32"></circle>
+      </svg>
+      <div class="texto-cargador">Alito Group</div>
+    </div>
+  </div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor-punto-contorno"></div>
+  <div class="cursor-punto"></div>
+
+  <!-- Menú lateral flotante -->
+  <nav class="menu-lateral">
+    <ul class="menu-lateral-enlaces">
+      <li><a href="#inicio" class="menu-lateral-enlace" data-seccion="inicio">
+        <i class="fas fa-home"></i>
+        <span>Inicio</span>
+      </a></li>
+      <li><a href="#quienes-somos" class="menu-lateral-enlace" data-seccion="quienes-somos">
+        <i class="fas fa-users"></i>
+        <span>Quiénes Somos</span>
+      </a></li>
+      <li><a href="#servicios" class="menu-lateral-enlace" data-seccion="servicios">
+        <i class="fas fa-truck-monster"></i>
+        <span>Servicios</span>
+      </a></li>
+      <li><a href="#materiales" class="menu-lateral-enlace" data-seccion="materiales">
+        <i class="fas fa-layer-group"></i>
+        <span>Materiales</span>
+      </a></li>
+      <li><a href="#contacto" class="menu-lateral-enlace" data-seccion="contacto">
+        <i class="fas fa-envelope"></i>
+        <span>Contacto</span>
+      </a></li>
+      
+    </ul>
+  </nav>
+
+  <header>
+    <div class="contenedor">
+      <a href="#" class="logo">
+        <img src="img/logo.png" alt="Logo" class="logo-img">
+        <span class="logo-texto">Alito Group SRL</span>
+      </a>
+      <nav>
+        <ul class="nav-enlaces">
+          <li><a href="#inicio" class="nav-enlace">Inicio</a></li>
+          <li><a href="#quienes-somos" class="nav-enlace">Quiénes Somos</a></li>
+          <li><a href="#servicios" class="nav-enlace">Servicios</a></li>
+          <li><a href="#materiales" class="nav-enlace">Materiales</a></li>
+          <li><a href="#contacto" class="nav-enlace">Contacto</a></li>
+          <li><a href="login.html" class="nav-enlace">login</a></li>
+          <li><a href="dashboard.html" class="nav-enlace">dashboard</a></li>
+
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-particulas"></div>
+      <div class="contenedor">
+        <h1 class="texto-dividido">Alquiler de Equipos Pesados y Movimiento de Materiales</h1>
+        <p class="fade-in-elemento">Calidad y Eficiencia en cada proyecto</p>
+        <a href="#contacto" class="boton-cta">
+          <span>Solicitar Cotización</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="indicador-scroll">
+        <div class="raton">
+          <div class="rueda"></div>
+        </div>
+        <div class="flecha-scroll">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="quienes-somos" class="sobre-nosotros">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">Nuestra Empresa</span>
+          <h2 class="titulo-seccion">Quiénes Somos</h2>
+        </div>
+        <div class="contenido-sobre-nosotros">
+          <div class="imagen-sobre-nosotros reveal-elemento">
+            <div class="contenedor-imagen">
+              <img src="img/exc02.webp" alt="Equipo de trabajo">
+              <div class="imagen-overlay"></div>
+            </div>
+            <div class="insignia-experiencia">
+              <span class="anios">7+</span>
+              <span class="texto">Años de Experiencia</span>
+            </div>
+          </div>
+          <div class="texto-sobre-nosotros">
+            <p class="reveal-elemento">Alito Group SRL es una empresa líder en el alquiler de equipos pesados y movimiento de materiales. Con años de experiencia en el sector, nos hemos consolidado como un socio confiable para proyectos de construcción y obras civiles.</p>
+            <p class="reveal-elemento">Nuestra misión es proporcionar soluciones eficientes y de alta calidad a nuestros clientes, garantizando la seguridad y el cumplimiento de los plazos en cada proyecto.</p>
+            <ul class="lista-caracteristicas">
+              <li class="reveal-elemento">
+                <div class="icono-caracteristica">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="texto-caracteristica">
+                  <h4>Compromiso con la excelencia</h4>
+                  <p>Nos esforzamos por superar las expectativas en cada proyecto.</p>
+                </div>
+              </li>
+              <li class="reveal-elemento">
+                <div class="icono-caracteristica">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="texto-caracteristica">
+                  <h4>Seguridad en todas nuestras operaciones</h4>
+                  <p>Priorizamos la seguridad de nuestro equipo y clientes.</p>
+                </div>
+              </li>
+              <li class="reveal-elemento">
+                <div class="icono-caracteristica">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="texto-caracteristica">
+                  <h4>Eficiencia y puntualidad</h4>
+                  <p>Cumplimos con los plazos establecidos en cada proyecto.</p>
+                </div>
+              </li>
+              <li class="reveal-elemento">
+                <div class="icono-caracteristica">
+                  <i class="fas fa-headset"></i>
+                </div>
+                <div class="texto-caracteristica">
+                  <h4>Atención personalizada al cliente</h4>
+                  <p>Ofrecemos soluciones adaptadas a las necesidades específicas.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="divisor-forma">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="relleno-forma"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section id="servicios" class="servicios">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">Lo que ofrecemos</span>
+          <h2 class="titulo-seccion">Nuestros Servicios</h2>
+        </div>
+        <div class="servicios-grid">
+          <div class="tarjeta-servicio reveal-elemento">
+            <div class="icono-servicio">
+              <i class="fas fa-truck-monster"></i>
+            </div>
+            <h3>Alquiler de Equipos Pesados</h3>
+            <ul>
+              <li>Excavadoras</li>
+              <li>Retroexcavadoras</li>
+              <li>Montacargas</li>
+              <li>Rodillos compactadores</li>
+              <li>Minicargadores</li>
+              <li>Plataformas de transporte</li>
+            </ul>
+            <p class="nota">Alquiler mínimo de 8 horas</p>
+            <a href="#contacto" class="enlace-servicio">
+              <span>Solicitar</span>
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+          <div class="tarjeta-servicio reveal-elemento">
+            <div class="icono-servicio">
+              <i class="fas fa-truck-loading"></i>
+            </div>
+            <h3>Movimiento de Materiales y Transporte</h3>
+            <ul>
+              <li>Camiones de 22 M3, 16 M3, 6 M3</li>
+              <li>Bote de escombros y residuos</li>
+              <li>Cargado y traslado de materiales</li>
+            </ul>
+            <p class="nota">Alquiler por día disponible</p>
+            <a href="#contacto" class="enlace-servicio">
+              <span>Solicitar</span>
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+          <div class="tarjeta-servicio reveal-elemento">
+            <div class="icono-servicio">
+              <i class="fas fa-shovel"></i>
+            </div>
+            <h3>Excavaciones y Limpieza</h3>
+            <ul>
+              <li>Excavación de terrenos</li>
+              <li>Limpieza de obras y terrenos</li>
+              <li>Movimiento de tierra</li>
+            </ul>
+            <a href="#contacto" class="enlace-servicio">
+              <span>Solicitar</span>
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="materiales" class="materiales">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">Nuestros productos</span>
+          <h2 class="titulo-seccion">Materiales Disponibles</h2>
+        </div>
+        <div class="materiales-grid">
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Arena Gruesa">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Arena Gruesa</h3>
+            <p>Ideal para construcciones y mezclas de concreto.</p>
+          </div>
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Arena Caliza">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Arena Caliza</h3>
+            <p>Perfecta para acabados y trabajos de albañilería.</p>
+          </div>
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Grava">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Grava</h3>
+            <p>Para drenajes y bases de construcción.</p>
+          </div>
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Grava Triturada">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Grava Triturada</h3>
+            <p>Alta resistencia para bases y sub-bases.</p>
+          </div>
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Caliche">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Caliche</h3>
+            <p>Material versátil para múltiples aplicaciones.</p>
+          </div>
+          <div class="tarjeta-material reveal-elemento">
+            <div class="imagen-material">
+              <img src="img/placeholder.jpg" alt="Capa vegetal">
+              <div class="material-overlay">
+                <a href="#contacto" class="enlace-material">Solicitar</a>
+              </div>
+            </div>
+            <h3>Capa vegetal</h3>
+            <p>Ideal para jardinería y paisajismo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="divisor-forma divisor-forma-inferior">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="relleno-forma"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta-seccion">Hablemos</span>
+          <h2 class="titulo-seccion">Contacto</h2>
+        </div>
+        <div class="contenido-contacto">
+          <form id="formulario-contacto" class="formulario-contacto reveal-elemento" action="https://formspree.io/f/xpwqggjr" method="POST" autocomplete="off">
+            <div class="encabezado-formulario">
+              <i class="fas fa-paper-plane icono-formulario"></i>
+              <h3>Envíanos un mensaje</h3>
+              <p>Completa el formulario y te responderemos a la brevedad</p>
+            </div>
+            <div class="fila-formulario">
+              <div class="grupo-formulario">
+                <label for="nombre">Nombre / Empresa</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <span class="borde-focus"></span>
+              </div>
+              <div class="grupo-formulario">
+                <label for="rnc">RNC</label>
+                <input type="text" id="rnc" name="rnc" required>
+                <span class="borde-focus"></span>
+              </div>
+            </div>
+            <div class="fila-formulario">
+              <div class="grupo-formulario">
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+                <span class="borde-focus"></span>
+              </div>
+              <div class="grupo-formulario">
+                <label for="telefono">Teléfono / WhatsApp</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                <span class="borde-focus"></span>
+              </div>
+            </div>
+            <div class="grupo-formulario">
+              <label for="servicio">Servicio o material requerido</label>
+              <div class="contenedor-select">
+                <select id="servicio" name="servicio" required>
+                  <option value="">Seleccione un servicio</option>
+                  <option value="alquiler">Alquiler de Equipos</option>
+                  <option value="transporte">Transporte de Materiales</option>
+                  <option value="excavacion">Excavación y Limpieza</option>
+                  <option value="materiales">Compra de Materiales</option>
+                </select>
+                <i class="fas fa-chevron-down flecha-select"></i>
+              </div>
+              <span class="borde-focus"></span>
+            </div>
+            <div class="grupo-formulario">
+              <label for="mensaje">Mensaje adicional</label>
+              <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+              <span class="borde-focus"></span>
+            </div>
+            <button type="submit" class="boton-enviar">
+              <span class="texto-enviar">Enviar Mensaje</span>
+              <span class="icono-enviar"><i class="fas fa-paper-plane"></i></span>
+              <span class="cargador-enviar"></span>
+            </button>
+            <div class="mensaje-exito-formulario">
+              <i class="fas fa-check-circle"></i>
+              <h3>¡Mensaje enviado!</h3>
+              <p>Gracias por contactarnos. Te responderemos a la brevedad.</p>
+            </div>
+          </form>
+          
+          <div class="info-contacto reveal-elemento">
+            <div class="tarjeta-contacto">
+              <div class="encabezado-tarjeta-contacto">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Nuestra Ubicación</h3>
+              </div>
+              <div class="contenedor-mapa">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.583298448127!2d-68.40067649999999!3d18.592816000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea893220a67ca01%3A0x9debcb18c72a2a2f!2sAlito%20EIRL!5e0!3m2!1ses!2sdo!4v1708977600000!5m2!1ses!2sdo" 
+                  width="100%" 
+                  height="250" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <div class="detalles-contacto">
+                <div class="item-contacto">
+                  <i class="fas fa-map-pin"></i>
+                  <p><strong>Dirección:</strong> Calle Domingo maiz</p>
+                </div>
+                <div class="item-contacto">
+                  <i class="fas fa-phone-alt"></i>
+                  <p><strong>Teléfono:</strong> +1(809)-693-3106 / +1(849)-315-0511</p>
+                </div>
+                <div class="item-contacto">
+                  <i class="fas fa-envelope"></i>
+                  <p><strong>Email:</strong> <a href="mailto:info@alitogroup.com">info@alitogroup.com</a></p>
+                </div>
+                <div class="enlaces-sociales">
+                  <a href="#" class="icono-social facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a href="https://www.instagram.com/alitoeirl/" class="icono-social instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="icono-social linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a href="https://wa.me/18096933106" class="icono-social whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="horario-contacto">
+              <div class="encabezado-horario">
+                <i class="fas fa-clock"></i>
+                <h3>Horario de Atención</h3>
+              </div>
+              <ul class="lista-horario">
+                <li>
+                  <span class="dia">Lunes - Viernes:</span>
+                  <span class="hora">8:00 AM - 6:00 PM</span>
+                </li>
+                <li>
+                  <span class="dia">Sábados:</span>
+                  <span class="hora">8:00 AM - 2:00 PM</span>
+                </li>
+                <li>
+                  <span class="dia">Domingos:</span>
+                  <span class="hora">Cerrado</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <button id="boton-nav-voz" class="boton-navegacion-voz" aria-label="Navegación por voz">
+      <i class="fas fa-microphone"></i>
+    </button>
+    
+    <!-- Modal Tutorial -->
+    <div id="modal-tutorial" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h2>Tutorial de Navegación por Voz</h2>
+        <p>Para navegar por voz, siga estos pasos:</p>
+        <ol>
+          <li>Haga clic en el botón "Navegación por Voz" para activar la escucha.</li>
+          <li>Espere a que el botón cambie de color, indicando que está listo para escuchar.</li>
+          <li>Diga claramente el comando de navegación, por ejemplo: "Ir a Servicios" o "Navegar a Contacto".</li>
+          <li>Espere unos segundos mientras el sistema procesa su comando.</li>
+          <li>El asistente de voz confirmará su selección y lo llevará a la sección correspondiente.</li>
+          <li>Para detener la escucha, haga clic nuevamente en el botón.</li>
+        </ol>
+        <p>Comandos disponibles:</p>
+        <ul>
+          <li>"Ir a Inicio" o "Navegar a Inicio"</li>
+          <li>"Ir a Quiénes Somos" o "Navegar a Quiénes Somos"</li>
+          <li>"Ir a Servicios" o "Navegar a Servicios"</li>
+          <li>"Ir a Materiales" o "Navegar a Materiales"</li>
+          <li>"Ir a Contacto" o "Navegar a Contacto"</li>
+        </ul>
+        <button id="cerrar-tutorial" class="boton-tutorial">Entendido</button>
+      </div>
+    </div>
+    
+    <!-- Estado de voz -->
+    <div id="estado-voz" class="estado-voz"></div>
+    
+    <!-- Controles de voz -->
+    <div class="controles-voz">
+      <button id="boton-pausa" class="boton-pausa">Pausar</button>
+      <button id="boton-cerrar" class="boton-cerrar">Cerrar</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <div class="contenido-footer">
+        <div class="seccion-footer">
+          <h3>Alito Group SRL</h3>
+          <p>Soluciones en alquiler de equipos pesados y movimiento de materiales.</p>
+          <div class="logo-footer">
+            <img src="img/logo.png" alt="Logo" class="img-logo-footer">
+          </div>
+        </div>
+        <div class="seccion-footer">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#materiales">Materiales</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="seccion-footer">
+          <h3>Contacto</h3>
+          <p>Teléfono: +1(809)-693-3106 / +1(849)-315-0511</p>
+          <p>Email: <a href="mailto:info@alitogroup.com">info@alitogroup.com</a></p>
+        </div>
+        <div class="seccion-footer">
+          <h3>Síguenos</h3>
+          <div class="enlaces-sociales">
+            <a href="#" class="icono-social facebook" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/alitoeirl/" class="icono-social instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="icono-social linkedin" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/18096933106" class="icono-social whatsapp" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <div class="boletin">
+            <h4>Suscríbete a nuestro boletín</h4>
+            <form class="formulario-boletin">
+              <input type="email" placeholder="Tu correo electrónico" required>
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-inferior">
+        <p>&copy; 2025 Alito Group SRL. Todos los derechos reservados.</p>
+      </div>
+    </div>
+    <button id="volver-arriba" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </footer>
+</body>
+</html>
+

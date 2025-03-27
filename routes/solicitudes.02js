@@ -41,26 +41,16 @@ router.get("/usuario/:userId", passport.authenticate("jwt", { session: false }),
   }
 })
 
-// Crear una nueva solicitud de cotización
-router.post("/cotizacion", passport.authenticate("jwt", { session: false }), async (req, res) => {
+// Crear una nueva solicitud
+router.post("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
+  const solicitud = new Solicitud({
+    usuario: req.user._id,
+    tipo: req.body.tipo,
+    descripcion: req.body.descripcion,
+    detalles: req.body.detalles,
+  })
+
   try {
-    const { items, comentarios } = req.body
-
-    if (!items || items.length === 0) {
-      return res.status(400).json({ message: "La solicitud debe contener al menos un ítem" })
-    }
-
-    const solicitud = new Solicitud({
-      usuario: req.user._id,
-      tipo: "cotizacion",
-      descripcion: "Solicitud de cotización de productos y servicios",
-      estado: "pendiente",
-      detalles: {
-        items,
-        comentarios,
-      },
-    })
-
     const nuevaSolicitud = await solicitud.save()
     res.status(201).json(nuevaSolicitud)
   } catch (error) {
@@ -75,12 +65,6 @@ router.get("/:id", passport.authenticate("jwt", { session: false }), async (req,
     if (!solicitud) {
       return res.status(404).json({ message: "Solicitud no encontrada" })
     }
-
-    // Verificar que el usuario sea el propietario o un admin/empleado
-    if (solicitud.usuario._id.toString() !== req.user._id.toString() && !["admin", "empleado"].includes(req.user.rol)) {
-      return res.status(403).json({ message: "No tiene permiso para ver esta solicitud" })
-    }
-
     res.json(solicitud)
   } catch (error) {
     res.status(500).json({ message: error.message })
@@ -104,32 +88,6 @@ router.patch(
       if (req.body.estado) solicitud.estado = req.body.estado
       if (req.body.detalles) solicitud.detalles = req.body.detalles
 
-      // Agregar comentario si se proporciona
-      if (req.body.comentario) {
-        if (!solicitud.detalles.comentarios) {
-          solicitud.detalles.comentarios = []
-        }
-
-        solicitud.detalles.comentarios.push({
-          usuario: req.user._id,
-          texto: req.body.comentario,
-          fecha: new Date(),
-        })
-      }
-
-      // Agregar respuesta si se proporciona
-      if (req.body.respuesta) {
-        solicitud.detalles.respuesta = {
-          tipo: req.body.respuesta.tipo, // "link" o "email"
-          contenido: req.body.respuesta.contenido, // URL o mensaje
-          fecha: new Date(),
-          usuario: req.user._id,
-        }
-
-        // Cambiar estado a completado si se proporciona respuesta
-        solicitud.estado = "completado"
-      }
-
       const solicitudActualizada = await solicitud.save()
       res.json(solicitudActualizada)
     } catch (error) {
@@ -145,7 +103,7 @@ router.delete("/:id", passport.authenticate("jwt", { session: false }), verifica
     if (!solicitud) {
       return res.status(404).json({ message: "Solicitud no encontrada" })
     }
-    await Solicitud.deleteOne({ _id: req.params.id })
+    await solicitud.remove()
     res.json({ message: "Solicitud eliminada" })
   } catch (error) {
     res.status(500).json({ message: error.message })

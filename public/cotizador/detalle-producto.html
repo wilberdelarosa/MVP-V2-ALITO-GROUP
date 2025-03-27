@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de Producto - Alito Group SRL</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/secciones.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="cotizador.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="../js/script.js" defer></script>
+  <script src="cotizador.js" defer></script>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="cargador">
+      <svg viewBox="0 0 80 80">
+        <circle id="circulo-cargador" cx="40" cy="40" r="32"></circle>
+      </svg>
+      <div class="texto-cargador">Alito Group</div>
+    </div>
+  </div>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor-punto-contorno"></div>
+  <div class="cursor-punto"></div>
+
+  <header>
+    <div class="contenedor">
+      <a href="../index.html" class="logo">
+        <img src="../img/logo.png" alt="Logo" class="logo-img">
+        <span class="logo-texto">Alito Group SRL</span>
+      </a>
+      <nav>
+        <ul class="nav-enlaces">
+          <li><a href="../index.html#inicio" class="nav-enlace">Inicio</a></li>
+          <li><a href="../index.html#quienes-somos" class="nav-enlace">Quiénes Somos</a></li>
+          <li><a href="../index.html#servicios" class="nav-enlace">Servicios</a></li>
+          <li><a href="../index.html#materiales" class="nav-enlace">Materiales</a></li>
+          <li><a href="../index.html#contacto" class="nav-enlace">Contacto</a></li>
+          <li><a href="catalogo.html" class="nav-enlace">Cotizador</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon">
+        <a href="carrito.html" aria-label="Ver carrito">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        <span id="cart-count" class="cart-count" style="display: none;">0</span>
+      </div>
+      <button class="menu-toggle" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="cotizador-container">
+      <div class="contenedor">
+        <div class="breadcrumbs">
+          <a href="catalogo.html">Catálogo</a> <i class="fas fa-chevron-right"></i> <span>Detalle de Producto</span>
+        </div>
+        
+        <div id="product-detail-container">
+          <!-- El detalle del producto se cargará dinámicamente con JavaScript -->
+        </div>
+        
+        <div class="related-products">
+          <h2>Productos Relacionados</h2>
+          <div class="products-container">
+            <!-- Los productos relacionados se cargarán dinámicamente con JavaScript -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <div class="contenido-footer">
+        <div class="seccion-footer">
+          <h3>Alito Group SRL</h3>
+          <p>Soluciones en alquiler de equipos pesados y movimiento de materiales.</p>
+          <div class="logo-footer">
+            <img src="../img/logo.png" alt="Logo" class="img-logo-footer">
+          </div>
+        </div>
+        <div class="seccion-footer">
+          <h3>Enlaces Rápidos</h3>
+          <ul>
+            <li><a href="../index.html#inicio">Inicio</a></li>
+            <li><a href="../index.html#quienes-somos">Quiénes Somos</a></li>
+            <li><a href="../index.html#servicios">Servicios</a></li>
+            <li><a href="../index.html#materiales">Materiales</a></li>
+            <li><a href="../index.html#contacto">Contacto</a></li>
+            <li><a href="catalogo.html">Cotizador</a></li>
+          </ul>
+        </div>
+        <div class="seccion-footer">
+          <h3>Contacto</h3>
+          <p>Teléfono: +1(809)-693-3106 / +1(849)-315-0511</p>
+          <p>Email: <a href="mailto:info@alitogroup.com">info@alitogroup.com</a></p>
+          <p><a href="https://wa.me/18096933106" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Contáctanos por WhatsApp</a></p>
+        </div>
+        <div class="seccion-footer">
+          <h3>Síguenos</h3>
+          <div class="enlaces-sociales">
+            <a href="#" class="icono-social facebook" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/alitoeirl/" class="icono-social instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="icono-social linkedin" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/18096933106" class="icono-social whatsapp" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+          <div class="boletin">
+            <h4>Suscríbete a nuestro boletín</h4>
+            <form class="formulario-boletin">
+              <input type="email" placeholder="Tu correo electrónico" required>
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="footer-inferior">
+        <p>&copy; 2025 Alito Group SRL. Todos los derechos reservados.</p>
+      </div>
+    </div>
+    <button id="volver-arriba" aria-label="Volver arriba">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+  </footer>
+</body>
+</html>
+
